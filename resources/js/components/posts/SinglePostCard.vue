@@ -9,6 +9,22 @@
         <footer class="blockquote-footer">
           Created at: <cite title="Source Title">{{ getDate }}</cite>
         </footer>
+        <footer class="blockquote-footer">
+          <span>Categorie:</span>
+          <span :class="`badge badge-${post.category.color}`">{{
+            post.category.label
+          }}</span>
+        </footer>
+        <footer class="blockquote-footer">
+          <span>TAGS:</span>
+          <span
+            v-for="tag in post.tags"
+            :key="tag.id"
+            class="badge badge-pill mr-2 text-white"
+            :style="`background-color: ${tag.color}`"
+            >{{ tag.label }}</span
+          >
+        </footer>
       </blockquote>
     </div>
   </div>

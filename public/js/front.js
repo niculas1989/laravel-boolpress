@@ -2030,6 +2030,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SinglePostCard",
   props: ["post"],
@@ -38399,6 +38415,35 @@ var render = function () {
             _vm._v(_vm._s(_vm.getDate)),
           ]),
         ]),
+        _vm._v(" "),
+        _c("footer", { staticClass: "blockquote-footer" }, [
+          _c("span", [_vm._v("Categorie:")]),
+          _vm._v(" "),
+          _c("span", { class: "badge badge-" + _vm.post.category.color }, [
+            _vm._v(_vm._s(_vm.post.category.label)),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c(
+          "footer",
+          { staticClass: "blockquote-footer" },
+          [
+            _c("span", [_vm._v("TAGS:")]),
+            _vm._v(" "),
+            _vm._l(_vm.post.tags, function (tag) {
+              return _c(
+                "span",
+                {
+                  key: tag.id,
+                  staticClass: "badge badge-pill mr-2 text-white",
+                  style: "background-color: " + tag.color,
+                },
+                [_vm._v(_vm._s(tag.label))]
+              )
+            }),
+          ],
+          2
+        ),
       ]),
     ]),
   ])
