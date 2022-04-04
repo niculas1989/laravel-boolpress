@@ -2,7 +2,7 @@
   <div class="container text-white">
     <h2>I miei post:</h2>
     <div v-if="posts.length">
-      <SinglePostCard />
+      <SinglePostCard v-for="post in posts" :key="post.id" :post="post" />
     </div>
     <p v-else>Nessun post.</p>
   </div>

@@ -2030,9 +2030,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "SinglePostCard"
+  name: "SinglePostCard",
+  props: ["post"]
 });
 
 /***/ }),
@@ -38337,7 +38337,13 @@ var render = function () {
     _c("h2", [_vm._v("I miei post:")]),
     _vm._v(" "),
     _vm.posts.length
-      ? _c("div", [_c("SinglePostCard")], 1)
+      ? _c(
+          "div",
+          _vm._l(_vm.posts, function (post) {
+            return _c("SinglePostCard", { key: post.id, attrs: { post: post } })
+          }),
+          1
+        )
       : _c("p", [_vm._v("Nessun post.")]),
   ])
 }
@@ -38363,31 +38369,27 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "card my-4" }, [
+    _c("div", { staticClass: "card-header" }, [_vm._v(_vm._s(_vm.post.title))]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body" }, [
+      _c("blockquote", { staticClass: "blockquote mb-0" }, [
+        _c("p", [_vm._v("\n        " + _vm._s(_vm.post.content) + "\n      ")]),
+        _vm._v(" "),
+        _vm._m(0),
+      ]),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card" }, [
-      _c("div", { staticClass: "card-header" }, [_vm._v("Quote")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _c("blockquote", { staticClass: "blockquote mb-0" }, [
-          _c("p", [
-            _vm._v(
-              "\n        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer\n        posuere erat a ante.\n      "
-            ),
-          ]),
-          _vm._v(" "),
-          _c("footer", { staticClass: "blockquote-footer" }, [
-            _vm._v("\n        Someone famous in "),
-            _c("cite", { attrs: { title: "Source Title" } }, [
-              _vm._v("Source Title"),
-            ]),
-          ]),
-        ]),
+    return _c("footer", { staticClass: "blockquote-footer" }, [
+      _vm._v("\n        Someone famous in "),
+      _c("cite", { attrs: { title: "Source Title" } }, [
+        _vm._v("Source Title"),
       ]),
     ])
   },
