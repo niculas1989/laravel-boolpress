@@ -1967,8 +1967,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "PostsList"
+  name: "PostsList",
+  data: function data() {
+    return {
+      posts: []
+    };
+  }
 });
 
 /***/ }),
@@ -37625,7 +37637,17 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container text-white" }, [
-    _vm._v("qualcosa andrà qua."),
+    _vm.posts.length
+      ? _c(
+          "ul",
+          _vm._l(_vm.posts, function (post) {
+            return _c("li", { key: post.id }, [
+              _vm._v("\n      " + _vm._s(post.title) + "\n    "),
+            ])
+          }),
+          0
+        )
+      : _c("p", [_vm._v("Nessun post.")]),
   ])
 }
 var staticRenderFns = []
