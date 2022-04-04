@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         // recupero tutti i post dal DB
-        $posts = Post::all();
+        $posts = Post::where('is_published', 1)->orderBy('updated_at', 'DESC')->get();
 
         // li trasformo in un file JSON, leggibile da JS
         return response()->json($posts);

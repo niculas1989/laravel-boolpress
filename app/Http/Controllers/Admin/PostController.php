@@ -84,7 +84,7 @@ class PostController extends Controller
 
         if (array_key_exists('tags', $data)) $post->tags()->attach($data['tags']);
 
-        $mail = new SendNewMail();
+        $mail = new SendNewMail($post);
         Mail::to('nicolas.maranzano@libero.it')->send($mail);
         return redirect()->route('admin.posts.index')->with('message', 'Post creato con successo')->with('type', 'success');
     }
