@@ -15,8 +15,7 @@
 </head>
 
 <body>
-    <div class="flex-center position-ref full-height">
-        <!--  @if (Route::has('login'))
+    <!--  @if (Route::has('login'))
         <div class="top-right links">
             @auth
             <a href="{{ url('/admin') }}">Home</a>
@@ -29,10 +28,8 @@
             @endauth
         </div>
         @endif -->
-
-        <div class="content">
-            <div id="root">
-            </div>
+    <div>
+        <div id="root">
         </div>
     </div>
 </body>

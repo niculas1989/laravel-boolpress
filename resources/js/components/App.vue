@@ -1,17 +1,13 @@
 <template>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">Benvenuti!</div>
-
-          <div class="card-body">Sito in fase di costruzione</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <Header />
 </template>
 
 <script>
-name: "App";
+import Header from "./Header";
+export default {
+  name: "App",
+  components: {
+    Header,
+  },
+};
 </script>

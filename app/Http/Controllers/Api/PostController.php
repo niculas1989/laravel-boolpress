@@ -15,9 +15,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::all();
+        // recupero tutti i post dal DB
+        $posts = Post::all();
 
-        return response()->json($post);
+        // li trasformo in un file JSON, leggibile da JS
+        return response()->json($posts);
     }
 
     /**
