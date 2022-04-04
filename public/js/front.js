@@ -2032,7 +2032,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SinglePostCard",
-  props: ["post"]
+  props: ["post"],
+  computed: {
+    getDate: function getDate() {
+      var postDate = new Date(this.post.updated_at);
+      var day = postDate.getDate();
+      var month = postDate.getMonth() + 1;
+      var year = postDate.getFullYear();
+      if (day < 10) day = "0" + day;
+      if (month < 10) month = "0" + month;
+      return "".concat(day, "/").concat(month, "/").concat(year);
+    }
+  }
 });
 
 /***/ }),
@@ -38376,24 +38387,17 @@ var render = function () {
       _c("blockquote", { staticClass: "blockquote mb-0" }, [
         _c("p", [_vm._v("\n        " + _vm._s(_vm.post.content) + "\n      ")]),
         _vm._v(" "),
-        _vm._m(0),
+        _c("footer", { staticClass: "blockquote-footer" }, [
+          _vm._v("\n        Created at: "),
+          _c("cite", { attrs: { title: "Source Title" } }, [
+            _vm._v(_vm._s(_vm.getDate)),
+          ]),
+        ]),
       ]),
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "blockquote-footer" }, [
-      _vm._v("\n        Someone famous in "),
-      _c("cite", { attrs: { title: "Source Title" } }, [
-        _vm._v("Source Title"),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
