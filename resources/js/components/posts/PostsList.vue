@@ -1,7 +1,7 @@
 <template>
   <div class="container text-white">
-    <h2>I miei post:</h2>
-    <div v-if="posts.length">
+    <div v-if="posts.length" class="mt-5">
+      <h2>I miei post:</h2>
       <SinglePostCard v-for="post in posts" :key="post.id" :post="post" />
     </div>
     <p v-else>Nessun post.</p>

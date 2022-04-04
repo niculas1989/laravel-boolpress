@@ -38345,15 +38345,21 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container text-white" }, [
-    _c("h2", [_vm._v("I miei post:")]),
-    _vm._v(" "),
     _vm.posts.length
       ? _c(
           "div",
-          _vm._l(_vm.posts, function (post) {
-            return _c("SinglePostCard", { key: post.id, attrs: { post: post } })
-          }),
-          1
+          { staticClass: "mt-5" },
+          [
+            _c("h2", [_vm._v("I miei post:")]),
+            _vm._v(" "),
+            _vm._l(_vm.posts, function (post) {
+              return _c("SinglePostCard", {
+                key: post.id,
+                attrs: { post: post },
+              })
+            }),
+          ],
+          2
         )
       : _c("p", [_vm._v("Nessun post.")]),
   ])
