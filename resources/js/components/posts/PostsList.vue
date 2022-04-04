@@ -1,17 +1,20 @@
 <template>
   <div class="container text-white">
-    <ul v-if="posts.length">
-      <li v-for="post in posts" :key="post.id">
-        {{ post.title }}
-      </li>
-    </ul>
+    <h2>I miei post:</h2>
+    <div v-if="posts.length">
+      <SinglePostCard />
+    </div>
     <p v-else>Nessun post.</p>
   </div>
 </template>
 
 <script>
+import SinglePostCard from "./SinglePostCard";
 export default {
   name: "PostsList",
+  components: {
+    SinglePostCard,
+  },
   data() {
     return {
       posts: [],
