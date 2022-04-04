@@ -1980,6 +1980,22 @@ __webpack_require__.r(__webpack_exports__);
     return {
       posts: []
     };
+  },
+  methods: {
+    getPosts: function getPosts() {
+      var _this = this;
+
+      axios.get("http://127.0.0.1:8000/api/posts").then(function (res) {
+        _this.posts = res.data;
+      })["catch"](function (err) {
+        console.log(err);
+      }).then(function () {
+        console.log("Tutto sotto controllo.");
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getPosts();
   }
 });
 

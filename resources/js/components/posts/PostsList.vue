@@ -17,6 +17,24 @@ export default {
       posts: [],
     };
   },
+  methods: {
+    getPosts() {
+      axios
+        .get("http://127.0.0.1:8000/api/posts")
+        .then((res) => {
+          this.posts = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .then(() => {
+          console.log("Tutto sotto controllo.");
+        });
+    },
+  },
+  mounted() {
+    this.getPosts();
+  },
 };
 </script>
 
