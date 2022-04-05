@@ -1,7 +1,9 @@
 <template>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Welcome to Boolpress!</a>
+      <router-link class="navbar-brand" to="/"
+        >Welcome to Boolpress!</router-link
+      >
       <button
         class="navbar-toggler"
         type="button"
@@ -16,12 +18,12 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
-              >Home <span class="sr-only">(current)</span></a
+            <router-link class="nav-link" to="/"
+              >Home <span class="sr-only">(current)</span></router-link
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contacts</a>
+            <router-link class="nav-link" to="/contacts">Contacts</router-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/admin">Admin</a>
