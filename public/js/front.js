@@ -2085,6 +2085,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SinglePostCard",
   props: ["post"],
@@ -38540,14 +38545,15 @@ var render = function () {
         [
           _vm._v("\n      " + _vm._s(_vm.post.title) + "\n      "),
           _c(
-            "a",
+            "router-link",
             {
               staticClass: "btn btn-success",
-              attrs: { href: "", role: "button" },
+              attrs: { to: { qualcheparte: _vm.qualcheparte }, role: "button" },
             },
             [_vm._v("Dettaglio Post")]
           ),
-        ]
+        ],
+        1
       ),
     ]),
     _vm._v(" "),

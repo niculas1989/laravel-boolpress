@@ -3,7 +3,12 @@
     <div class="card-header">
       <div class="d-flex justify-content-between align-items-center">
         {{ post.title }}
-        <a href="" role="button" class="btn btn-success">Dettaglio Post</a>
+        <router-link
+          :to="{ qualcheparte }"
+          role="button"
+          class="btn btn-success"
+          >Dettaglio Post</router-link
+        >
       </div>
     </div>
     <div class="card-body">
