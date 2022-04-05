@@ -1,5 +1,5 @@
 <template>
-  <div class="contain">
+  <div class="container text-white text-center">
     Contact-us!
     <p>Lorem ipsum dolor sit amet, consectetur.</p>
   </div>
