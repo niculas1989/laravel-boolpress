@@ -2048,6 +2048,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2067,7 +2070,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.isLoading = true;
-      axios.get("http://127.0.0.1:8000/api/posts/" + this.$route.params.id).then(function (res) {
+      axios.get("http://127.0.0.1:8000/api/posts/" + this.$route.params.slug).then(function (res) {
         _this.post = res.data;
       })["catch"](function (err) {
         console.error(err);
@@ -38782,6 +38785,19 @@ var render = function () {
           : _c("SinglePostCard", {
               attrs: { post: _vm.post, "hide-link": "true" },
             }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            on: {
+              click: function ($event) {
+                return _vm.$router.back()
+              },
+            },
+          },
+          [_vm._v("\n      Torna indietro\n    ")]
+        ),
       ],
       1
     ),
@@ -38937,7 +38953,10 @@ var render = function () {
                 {
                   staticClass: "btn btn-success",
                   attrs: {
-                    to: { name: "detail-post", params: { id: _vm.post.id } },
+                    to: {
+                      name: "detail-post",
+                      params: { slug: _vm.post.slug },
+                    },
                     role: "button",
                   },
                 },
@@ -55140,7 +55159,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _components_pages_ContactPage__WEBPACK_IMPORTED_MODULE_3__["default"],
     name: 'contacts'
   }, {
-    path: '/posts/:id',
+    path: '/posts/:slug',
     component: _components_pages_DetailPage__WEBPACK_IMPORTED_MODULE_5__["default"],
     name: 'detail-post'
   }, {

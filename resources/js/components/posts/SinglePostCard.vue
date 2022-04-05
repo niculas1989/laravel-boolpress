@@ -4,7 +4,7 @@
       <div class="d-flex justify-content-between align-items-center">
         {{ post.title }}
         <router-link
-          :to="{ name: 'detail-post', params: { id: post.id } }"
+          :to="{ name: 'detail-post', params: { slug: post.slug } }"
           role="button"
           class="btn btn-success"
           v-if="!hideLink"
