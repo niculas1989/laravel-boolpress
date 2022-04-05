@@ -4,7 +4,7 @@
       <div class="d-flex justify-content-between align-items-center">
         {{ post.title }}
         <router-link
-          :to="{ qualcheparte }"
+          :to="{ name: 'detail-post', params: { id: post.id } }"
           role="button"
           class="btn btn-success"
           >Dettaglio Post</router-link

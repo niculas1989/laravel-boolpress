@@ -38882,7 +38882,10 @@ var render = function () {
             "router-link",
             {
               staticClass: "btn btn-success",
-              attrs: { to: { qualcheparte: _vm.qualcheparte }, role: "button" },
+              attrs: {
+                to: { name: "detail-post", params: { id: _vm.post.id } },
+                role: "button",
+              },
             },
             [_vm._v("Dettaglio Post")]
           ),
@@ -55082,7 +55085,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: _components_pages_ContactPage__WEBPACK_IMPORTED_MODULE_3__["default"],
     name: 'contacts'
   }, {
-    path: '/posts/post',
+    path: '/posts/:id',
     component: _components_pages_DetailPage__WEBPACK_IMPORTED_MODULE_5__["default"],
     name: 'detail-post'
   }, {
