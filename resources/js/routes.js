@@ -9,6 +9,7 @@ import NotFound from './components/pages/NotFound'
 
 const router = new VueRouter({
     mode: 'history',
+    linkExactActiveClass: 'active',
     routes: [
         { path: '/', component: HomePage, name: 'home' },
         { path: '/contacts', component: ContactPage, name: 'contacts' },

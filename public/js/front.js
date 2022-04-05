@@ -2078,6 +2078,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NotFound"
 });
@@ -38544,7 +38548,7 @@ var render = function () {
             _c("ul", { staticClass: "navbar-nav" }, [
               _c(
                 "li",
-                { staticClass: "nav-item active" },
+                { staticClass: "nav-item" },
                 [
                   _c(
                     "router-link",
@@ -38733,24 +38737,32 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "section",
+    {
+      staticClass:
+        "\n    d-flex\n    justify-content-center\n    align-items-center\n    h-100\n    w-100\n    text-danger\n    flex-column\n  ",
+      attrs: { id: "not-found" },
+    },
+    [
+      _c("h2", [_vm._v("404 | NOT FOUND")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger",
+          on: {
+            click: function ($event) {
+              return _vm.$router.back()
+            },
+          },
+        },
+        [_vm._v("\n    Torna Indietro\n  ")]
+      ),
+    ]
+  )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "section",
-      {
-        staticClass:
-          "\n    d-flex\n    justify-content-center\n    align-items-center\n    h-100\n    w-100\n    text-danger\n  ",
-        attrs: { id: "not-found" },
-      },
-      [_c("h2", [_vm._v("404 | NOT FOUND")])]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -54946,6 +54958,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
+  linkExactActiveClass: 'active',
   routes: [{
     path: '/',
     component: _components_pages_HomePage__WEBPACK_IMPORTED_MODULE_2__["default"],
