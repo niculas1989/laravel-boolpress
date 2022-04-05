@@ -2080,6 +2080,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SinglePostCard",
   props: ["post"],
@@ -38528,7 +38533,23 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card my-4" }, [
-    _c("div", { staticClass: "card-header" }, [_vm._v(_vm._s(_vm.post.title))]),
+    _c("div", { staticClass: "card-header" }, [
+      _c(
+        "div",
+        { staticClass: "d-flex justify-content-between align-items-center" },
+        [
+          _vm._v("\n      " + _vm._s(_vm.post.title) + "\n      "),
+          _c(
+            "a",
+            {
+              staticClass: "btn btn-success",
+              attrs: { href: "", role: "button" },
+            },
+            [_vm._v("Dettaglio Post")]
+          ),
+        ]
+      ),
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
       _c("blockquote", { staticClass: "blockquote mb-0" }, [

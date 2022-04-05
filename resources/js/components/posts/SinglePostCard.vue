@@ -1,6 +1,11 @@
 <template>
   <div class="card my-4">
-    <div class="card-header">{{ post.title }}</div>
+    <div class="card-header">
+      <div class="d-flex justify-content-between align-items-center">
+        {{ post.title }}
+        <a href="" role="button" class="btn btn-success">Dettaglio Post</a>
+      </div>
+    </div>
     <div class="card-body">
       <blockquote class="blockquote mb-0">
         <p>
