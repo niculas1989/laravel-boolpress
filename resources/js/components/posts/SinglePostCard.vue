@@ -7,6 +7,7 @@
           :to="{ name: 'detail-post', params: { id: post.id } }"
           role="button"
           class="btn btn-success"
+          v-if="!hideLink"
           >Dettaglio Post</router-link
         >
       </div>
@@ -43,7 +44,7 @@
 <script>
 export default {
   name: "SinglePostCard",
-  props: ["post"],
+  props: ["post", "hide-link"],
   computed: {
     getDate() {
       const postDate = new Date(this.post.updated_at);

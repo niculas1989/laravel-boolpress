@@ -3,7 +3,7 @@
     <div class="container">
       <h1>Dettaglio del post.</h1>
       <Loader v-if="isLoading && !post" />
-      <SinglePostCard v-else :post="post" />
+      <SinglePostCard v-else :post="post" hide-link="true" />
     </div>
   </section>
 </template>
@@ -24,7 +24,7 @@ export default {
     getSinglePost() {
       this.isLoading = true;
       axios
-        .get("http://127.0.0.1:8000/api/posts/51")
+        .get("http://127.0.0.1:8000/api/posts/" + this.$route.params.id)
         .then((res) => {
           this.post = res.data;
         })

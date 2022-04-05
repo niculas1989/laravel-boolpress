@@ -2067,7 +2067,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.isLoading = true;
-      axios.get("http://127.0.0.1:8000/api/posts/51").then(function (res) {
+      axios.get("http://127.0.0.1:8000/api/posts/" + this.$route.params.id).then(function (res) {
         _this.post = res.data;
       })["catch"](function (err) {
         console.error(err);
@@ -2257,9 +2257,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "SinglePostCard",
-  props: ["post"],
+  props: ["post", "hide-link"],
   computed: {
     getDate: function getDate() {
       var postDate = new Date(this.post.updated_at);
@@ -38778,7 +38779,9 @@ var render = function () {
         _vm._v(" "),
         _vm.isLoading && !_vm.post
           ? _c("Loader")
-          : _c("SinglePostCard", { attrs: { post: _vm.post } }),
+          : _c("SinglePostCard", {
+              attrs: { post: _vm.post, "hide-link": "true" },
+            }),
       ],
       1
     ),
@@ -38928,17 +38931,19 @@ var render = function () {
         { staticClass: "d-flex justify-content-between align-items-center" },
         [
           _vm._v("\n      " + _vm._s(_vm.post.title) + "\n      "),
-          _c(
-            "router-link",
-            {
-              staticClass: "btn btn-success",
-              attrs: {
-                to: { name: "detail-post", params: { id: _vm.post.id } },
-                role: "button",
-              },
-            },
-            [_vm._v("Dettaglio Post")]
-          ),
+          !_vm.hideLink
+            ? _c(
+                "router-link",
+                {
+                  staticClass: "btn btn-success",
+                  attrs: {
+                    to: { name: "detail-post", params: { id: _vm.post.id } },
+                    role: "button",
+                  },
+                },
+                [_vm._v("Dettaglio Post")]
+              )
+            : _vm._e(),
         ],
         1
       ),
