@@ -2035,6 +2035,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Alert_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Alert.vue */ "./resources/js/components/Alert.vue");
+/* harmony import */ var _Loader_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Loader.vue */ "./resources/js/components/Loader.vue");
+//
+//
+//
 //
 //
 //
@@ -2070,10 +2074,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ContactPage",
   components: {
-    Alert: _Alert_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Alert: _Alert_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Loader: _Loader_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
@@ -2081,6 +2087,7 @@ __webpack_require__.r(__webpack_exports__);
         email: "",
         message: ""
       },
+      isLoading: false,
       alertMessage: ""
     };
   },
@@ -2088,12 +2095,14 @@ __webpack_require__.r(__webpack_exports__);
     sendForm: function sendForm() {
       var _this = this;
 
+      this.isLoading = true;
       axios.post("http://127.0.0.1:8000/api/messages", this.form).then(function (res) {
-        console.log("porcodio");
         _this.form.email = "";
         _this.form.message = "";
         _this.alertMessage = "Messaggio mandato con successo";
-      })["catch"](function (err) {}).then(function () {});
+      })["catch"](function (err) {}).then(function () {
+        _this.isLoading = false;
+      });
     }
   }
 });
@@ -38849,84 +38858,102 @@ var render = function () {
     [
       _c("h2", [_vm._v("Contact us!")]),
       _vm._v(" "),
-      _vm.alertMessage
-        ? _c("Alert", { attrs: { type: "info", message: _vm.alertMessage } })
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group w-50" }, [
-        _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.email,
-              expression: "form.email",
-            },
-          ],
-          staticClass: "form-control",
-          attrs: { type: "email", id: "email" },
-          domProps: { value: _vm.form.email },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form, "email", $event.target.value)
-            },
-          },
-        }),
-        _vm._v(" "),
-        _c(
-          "small",
-          { staticClass: "form-text text-white", attrs: { id: "emailHelp" } },
-          [_vm._v("La mail alla quale sarai ricontattato.")]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "message" } }, [_vm._v("Testo messaggio")]),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.message,
-              expression: "form.message",
-            },
-          ],
-          staticClass: "form-control",
-          attrs: { id: "message", rows: "12" },
-          domProps: { value: _vm.form.message },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form, "message", $event.target.value)
-            },
-          },
-        }),
-        _vm._v(" "),
-        _c(
-          "small",
-          {
-            staticClass: "form-text text-white",
-            attrs: { id: "textAreaHelp" },
-          },
-          [_vm._v("Il testo del messaggio da inviare.")]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "d-flex justify-content-end" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-danger", on: { click: _vm.sendForm } },
-          [_vm._v("SEND")]
-        ),
-      ]),
+      _vm.isLoading
+        ? _c("Loader")
+        : _c(
+            "div",
+            [
+              _vm.alertMessage
+                ? _c("Alert", {
+                    attrs: { type: "success", message: _vm.alertMessage },
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group w-50" }, [
+                _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.email,
+                      expression: "form.email",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "email", id: "email" },
+                  domProps: { value: _vm.form.email },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "email", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c(
+                  "small",
+                  {
+                    staticClass: "form-text text-white",
+                    attrs: { id: "emailHelp" },
+                  },
+                  [_vm._v("La mail alla quale sarai ricontattato.")]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "message" } }, [
+                  _vm._v("Testo messaggio"),
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.message,
+                      expression: "form.message",
+                    },
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "message", rows: "12" },
+                  domProps: { value: _vm.form.message },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "message", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _c(
+                  "small",
+                  {
+                    staticClass: "form-text text-white",
+                    attrs: { id: "textAreaHelp" },
+                  },
+                  [_vm._v("Il testo del messaggio da inviare.")]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex justify-content-end" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    on: { click: _vm.sendForm },
+                  },
+                  [_vm._v("SEND")]
+                ),
+              ]),
+            ],
+            1
+          ),
     ],
     1
   )
