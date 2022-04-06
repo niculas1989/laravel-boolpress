@@ -2037,8 +2037,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "ContactPage"
+  name: "ContactPage",
+  data: function data() {
+    return {
+      form: {
+        email: "",
+        message: ""
+      }
+    };
+  }
 });
 
 /***/ }),
@@ -38755,52 +38773,83 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container text-white mt-5" }, [
+    _c("h2", [_vm._v("Contact us!")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group w-50" }, [
+      _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.form.email,
+            expression: "form.email",
+          },
+        ],
+        staticClass: "form-control",
+        attrs: { type: "email", id: "email" },
+        domProps: { value: _vm.form.email },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.form, "email", $event.target.value)
+          },
+        },
+      }),
+      _vm._v(" "),
+      _c(
+        "small",
+        { staticClass: "form-text text-white", attrs: { id: "emailHelp" } },
+        [_vm._v("La mail alla quale sarai ricontattato.")]
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "message" } }, [_vm._v("Testo messaggio")]),
+      _vm._v(" "),
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.form.message,
+            expression: "form.message",
+          },
+        ],
+        staticClass: "form-control",
+        attrs: { id: "message", rows: "12" },
+        domProps: { value: _vm.form.message },
+        on: {
+          input: function ($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.form, "message", $event.target.value)
+          },
+        },
+      }),
+      _vm._v(" "),
+      _c(
+        "small",
+        { staticClass: "form-text text-white", attrs: { id: "textAreaHelp" } },
+        [_vm._v("Il testo del messaggio da inviare.")]
+      ),
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container text-white mt-5" }, [
-      _c("h2", [_vm._v("Contact us!")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group w-50" }, [
-        _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "email", id: "email" },
-        }),
-        _vm._v(" "),
-        _c(
-          "small",
-          { staticClass: "form-text text-white", attrs: { id: "emailHelp" } },
-          [_vm._v("La mail alla quale sarai ricontattato.")]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "message" } }, [_vm._v("Testo messaggio")]),
-        _vm._v(" "),
-        _c("textarea", {
-          staticClass: "form-control",
-          attrs: { id: "message", rows: "12" },
-        }),
-        _vm._v(" "),
-        _c(
-          "small",
-          {
-            staticClass: "form-text text-white",
-            attrs: { id: "textAreaHelp" },
-          },
-          [_vm._v("Il testo del messaggio da inviare.")]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "d-flex justify-content-end" }, [
-        _c("button", { staticClass: "btn btn-danger" }, [_vm._v("SEND")]),
-      ]),
+    return _c("div", { staticClass: "d-flex justify-content-end" }, [
+      _c("button", { staticClass: "btn btn-danger" }, [_vm._v("SEND")]),
     ])
   },
 ]
