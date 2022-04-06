@@ -1,7 +1,23 @@
 <template>
-  <div class="container text-white text-center">
-    Contact-us!
-    <p>Lorem ipsum dolor sit amet, consectetur.</p>
+  <div class="container text-white mt-5">
+    <h2>Contact us!</h2>
+    <div class="form-group w-50">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" />
+      <small id="emailHelp" class="form-text text-white"
+        >La mail alla quale sarai ricontattato.</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="message">Testo messaggio</label>
+      <textarea class="form-control" id="message" rows="12"></textarea>
+      <small id="textAreaHelp" class="form-text text-white"
+        >Il testo del messaggio da inviare.</small
+      >
+    </div>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-danger">SEND</button>
+    </div>
   </div>
 </template>
 
