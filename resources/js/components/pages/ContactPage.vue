@@ -67,6 +67,20 @@ export default {
   },
   methods: {
     sendForm() {
+      //| validazione front-end
+      const errors = {};
+      if (!this.form.email.trim()) errors.mail = "Mail obbligatoria. Riprova.";
+      if (!this.form.message.trim())
+        errors.message = "Testo del messaggio obbligatorio. Riprova.";
+      if (
+        this.fomr.email.trim() &&
+        !this.form.email.match(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)
+      )
+        errors.mail = "La mail inserita non è valida.";
+
+      this.errors = errors;
+
+      //| accendo loading e mando mail
       this.isLoading = true;
       axios
         .post("http://127.0.0.1:8000/api/messages", this.form)
