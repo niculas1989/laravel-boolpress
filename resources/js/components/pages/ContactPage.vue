@@ -3,7 +3,19 @@
     <h2>Contact us!</h2>
     <Loader v-if="isLoading" />
     <div v-else>
-      <Alert v-if="alertMessage" type="success" :message="alertMessage" />
+      <Alert
+        v-if="hasErrors || alertMessage"
+        :type="hasErrors ? 'danger' : 'success'"
+      >
+        <div v-if="alertMessage">
+          {{ alertMessage }}
+        </div>
+        <ul v-if="hasErrors">
+          <li v-for="(error, key) in errors" :key="key">
+            {{ error }}
+          </li>
+        </ul>
+      </Alert>
       <div class="form-group w-50">
         <label for="email">Email</label>
         <input
@@ -38,6 +50,7 @@
 <script>
 import Alert from "../Alert.vue";
 import Loader from "../Loader.vue";
+import { isEmpty } from "lodash";
 export default {
   name: "ContactPage",
   components: { Alert, Loader },
@@ -49,6 +62,7 @@ export default {
       },
       isLoading: false,
       alertMessage: "",
+      errors: {},
     };
   },
   methods: {
@@ -61,10 +75,20 @@ export default {
           this.form.message = "";
           this.alertMessage = "Messaggio mandato con successo";
         })
-        .catch((err) => {})
+        .catch((err) => {
+          this.errors = {
+            error: "Si è verificato un errore, riprova più tardi.",
+          };
+        })
         .then(() => {
           this.isLoading = false;
         });
+    },
+  },
+  computed: {
+    hasErrors() {
+      return Object.keys(this.errors).length;
+      // return !isEmpty(this.errors);
     },
   },
 };
